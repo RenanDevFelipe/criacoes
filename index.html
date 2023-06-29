@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    section:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .pergunta {
+        display: flex;
+        padding: 20px;
+        border-bottom: 1px solid #a09e9e;
+        gap: .6rem;
+        align-items: center;
+        color: #a09e9e;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .icone {
+        color: #000;
+        transition: 0.5s;
+    }
+
+    .pergunta.teste {
+        border: none;
+        color: #ff6200;
+    }
+
+    .icone.iconeActive {
+        transform: rotate(-90deg);
+        color: #ff6200;
+    }
+
+    .resposta {
+        margin-top: 5px;
+        padding: 20px;
+        border-bottom: 1px solid #a09e9e;
+        transform: translateY(-40px);
+        opacity: 0;
+        position: fixed;
+        visibility: hidden;
+    }
+
+
+
+    .resposta.active1 {
+        transform: translateY(0);
+        width: 96.5%;
+        opacity: 1;
+        position: relative;
+        visibility: visible;
+        transition: 0.5s ease-in-out;
+    }
+</style>
+
+<body>
+    <section>
+        <div class="pergunta" id="pergunta">
+            <div class="icone" id="icone"><i class="fa-solid fa-caret-right"></i></div>
+            <p>Como funciona ?</p>
+        </div>
+
+        <div class="resposta" id="resposta">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad expedita, veritatis et dignissimos hic magnam
+                quisquam libero eius deserunt. Laudantium consequatur itaque fugiat nostrum aperiam reiciendis amet
+                debitis soluta alias.</p>
+        </div>
+
+
+
+        <div class="pergunta" id="pergunta1">
+            <div class="icone" id="icone1"><i class="fa-solid fa-caret-right"></i></div>
+            <p>Como funciona ?</p>
+        </div>
+
+        <div class="resposta" id="resposta1">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad expedita, veritatis et dignissimos hic magnam
+                quisquam libero eius deserunt. Laudantium consequatur itaque fugiat nostrum aperiam reiciendis amet
+                debitis soluta alias.</p>
+        </div>
+    </section>
+</body>
+<script>
+    const Pergunta = document.getElementById("pergunta"),
+        Resposta = document.getElementById("resposta"),
+        icone = document.getElementById("icone");
+
+    Pergunta.addEventListener("click", () => {
+        Resposta.classList.toggle("active1");
+        Pergunta.classList.toggle("teste");
+        icone.classList.toggle("iconeActive")
+
+
+    });
+
+    const Pergunta1 = document.getElementById("pergunta1"),
+        Resposta1 = document.getElementById("resposta1"),
+        icone1 = document.getElementById("icone1");
+
+    Pergunta1.addEventListener("click", () => {
+        Resposta1.classList.toggle("active1");
+        Pergunta1.classList.toggle("teste");
+        icone1.classList.toggle("iconeActive")
+    })
+</script>
+
+</html>
